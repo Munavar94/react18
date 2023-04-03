@@ -28,12 +28,12 @@ function App() {
     // setQuery(e.target.value);
     setInputValue(e.target.value);
     startTransition(() => setQuery(e.target.value))
-  }
+  };
 
   const filteredNames = NAMES.filter((item) => {
     return item.first_name.toLocaleLowerCase().includes(query) || 
       item.last_name.toLocaleLowerCase().includes(query)
-  })
+  });
 
   return (
     <>
@@ -83,6 +83,6 @@ function App() {
     </div>
     </>
   );
-}
+};
 
 export default App;

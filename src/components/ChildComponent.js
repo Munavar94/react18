@@ -15,4 +15,4 @@ export const ChildComponent = (props) => {
 //             <button onClick={greetHandler}>Greet Parent</button>
 //         </div>
 //     )
-// }
+// };

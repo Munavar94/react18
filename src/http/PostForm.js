@@ -27,7 +27,7 @@ export const PostForm = () => {
         setUserId('');
         setTitle('');
         setBody('');
-    }
+    };
 
     // useEffect((id) => {
     //     fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
@@ -67,6 +67,6 @@ export const PostForm = () => {
         </div>
         <button type='submit'>Submit</button>
     </form>
-}
+};
 
 // PUT and Delete...try

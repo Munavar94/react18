@@ -7,7 +7,7 @@ export const StyleSheet = () => {
             <h1 className='primary'>From CSS stylesheets</h1>            
         </>
     )
-}
+};
 
 // <h1 style={primary}>From Inline styling</h1>
 // <h1 className={styles.primary}>From CSS Modules</h1>

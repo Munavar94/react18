@@ -9,4 +9,4 @@ export const Inline = () => {
             <h1 style={heading}>From Inline styling</h1>
         </>
     )
-}
+};
