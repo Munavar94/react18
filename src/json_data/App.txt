@@ -1,0 +1,72 @@
+import { useState } from 'react';
+import NAMES from './newhook/data.json';
+
+function App() {
+  const [query, setQuery] = useState('');
+
+  const changeHandler = (e) => {
+    setQuery(e.target.value);
+  }
+
+  const filteredNames = NAMES.filter((item) => {
+    return item.first_name.toLocaleLowerCase().includes(query) || 
+      item.last_name.toLocaleLowerCase().includes(query)
+  })
+  
+  return (
+    <div className="App">
+      <input type='text' value={query} onChange={changeHandler} />
+        {
+          filteredNames.map((item) => (
+            <p key={item.id}>{item.first_name} {item.last_name}</p>
+          ))
+        }
+    </div>
+  );
+}
+
+export default App;
+
+----------------------------------------------------------------------
+# useTransition()
+
+import { useState, useTransition } from 'react';
+import NAMES from './newhook/data.json';
+
+function App() {
+  const [query, setQuery] = useState('');
+  const [inputValue, setInputValue] = useState('');
+  const [isPending, startTransition] = useTransition();
+
+  const changeHandler = (e) => {
+    setInputValue(e.target.value);
+    startTransition(() => setQuery(e.target.value))
+  }
+
+  const filteredNames = NAMES.filter((item) => {
+    return item.first_name.toLocaleLowerCase().includes(query) || 
+      item.last_name.toLocaleLowerCase().includes(query)
+  })
+
+  return (
+    <div className="App">
+      <input type='text' value={inputValue} onChange={changeHandler} />
+        {
+          isPending && <p>Updating the List...</p>
+        }
+        {
+          filteredNames.map((item) => (
+            <p key={item.id}>{item.first_name} {item.last_name}</p>
+          ))
+        }
+    </div>
+  );
+}
+
+export default App;
+
+-------------------------------------------------------
+
+Note: https://jsonplaceholder.typicode.com/guide/
+
+No.2: https://www.mockaroo.com/
